@@ -173,10 +173,12 @@ def send_analytics_tracker(name, uid=None):
         uid = datetime.now().timestamp()
     track_url = "%s&dl=%s&dt=%s&tid=%s&cid=%s" % (url, track_page, track_title, ga_id, uid)
 
-    try:
-        requests.get(track_url, headers=reqheader)
-    except:   # noqa # pylint: disable=bare-except
-        pass
+    # FIXME: disabling for checking Arm error
+
+    #try:
+    #    requests.get(track_url, headers=reqheader)
+    #except:   # noqa # pylint: disable=bare-except
+    #    pass
 
 
 class SizeAccounting:
